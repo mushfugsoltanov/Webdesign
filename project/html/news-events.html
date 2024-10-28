@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/test.css">
+    <title>Latest news - Tartu</title>
+    <link rel="icon" type="image/x-icon" href="../img/Tartu-logo.png">
+</head>
+
+<body>
+    <!-- NAVBAR-->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="../img/Tartu-logo.png" alt="Tartu Logo">
+
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="news-events.html" class="active">News & Events</a></li>
+                    <li><a href="history-popular.html">History & People</a></li>
+                    <li><a href="sightseeings.html">Sightseeings</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <h1>Latest news in Tartu</h1>
+        </div>
+    </header>
+
+    <section class="main-content container news-container">
+        <div class="news-item">
+            <img src="../img/tartu student.jpg" alt="Tartu Student Days Festival">
+            <div class="news-content">
+                <h2>Tartu Student Days festival begins on Monday with pancake breakfast</h2>
+                <p>The autumn edition of this year's Tartu Student Days festival gets underway on Monday, September 23.
+                    This year's festival includes nearly 60 different events and begins, as per tradition, with a free
+                    pancake breakfast in Town Hall Square (Raekoja Plats).</p>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <img src="../img/train.jpg" alt="Tartu-Riga Train Funding">
+            <div class="news-content">
+                <h2>Estonian government comes up with €2 million for Tartu-Riga train</h2>
+                <p>The Estonian government decided at its meeting Tuesday to allocate €2 million to Elron for the launch
+                    of the Tartu-Riga passenger rail link, meaning that the planned new line could enter service next
+                    spring.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SLIDER -->
+    <div class="events-slider">
+        <center>
+            <h2>Events Next Week</h2>
+        </center>
+        <div class="slider-container" id="eventsSlider">
+            <!-- Event slides will be dynamically added here -->
+            <button class="slider-arrow left-arrow">&lt;</button>
+            <button class="slider-arrow right-arrow">&gt;</button>
+        </div>
+    </div>
+
+    <script src="../js/events-slider.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Tartu</p>
+        </div>
+    </footer>
+</body>
+
+</html>

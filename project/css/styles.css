@@ -1,0 +1,606 @@
+﻿
+/* We defined custom fonts for h1 and h2 so it'll look fancy */
+
+@font-face {
+    font-family: 'Bereal';  
+    src: url('grotesque.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal; 
+}
+
+@font-face {
+    font-family: 'VStyle';  /* defines a font family named 'VStyle' I downloaded before */
+    src: url('VStyle.ttf') format('truetype');  
+    font-weight: normal; 
+    font-style: normal;  
+}
+
+body {
+    font-family: 'Arial', sans-serif;  /* sets the font family for the body text */
+    line-height: 1.6;  /* sets the line height for better readability than 1.2*/
+    color: #333;  
+    background-color: #f8f8f8;  
+}
+
+.tagline {
+    color: black;  
+    font-family: Bereal;  
+}
+
+.container {
+    max-width: 1200px; 
+    margin: auto;  
+    padding: 0 20px;  /*padding to the left and right sides of the container */
+}
+
+
+/* using VStyle font family */
+.title {
+    font-family: 'VStyle';  
+    line-height: 1.3;  /* we've chosen the height based on few tries */
+    color: rgb(14, 16, 17);  
+    background-color: #f8f8f8;  
+}
+
+/* navigation */
+.navbar {
+    background-color: #333; /* black for contrast */
+    color: white; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle box shadow for aesthetics */
+    padding: 15px 0; /* adjust padding at the top and bottom of the navbar */
+    display: flex; /* flexbox */
+    justify-content: space-between; 
+    position: sticky; /* navbar is "sticked" to the top of the page */
+    top: 0; /* at the top of the page */
+    z-index: 10000; /* high z-index to make sure that the navbar is above other elements */
+    }
+
+    /* Navbar Container Styles */
+    .navbar .container {
+        display: flex; 
+        justify-content: space-between;  /* space elements evenly distributed*/
+        align-items: center;  /* centering within the container */
+    }
+
+/* logo */
+
+.logo img {
+    max-width: 100px;
+}
+
+.nav-menu ul {
+    list-style: none;  /* deleting styling */
+    display: flex;  /* flexbox */
+}
+
+.nav-menu a {
+    font-weight: bold;
+    text-decoration: none;  /* deleting underlines under the links */
+    color: white; 
+    margin: 0 15px; 
+    transition: color 0.3s ease-in-out;  /* hoover: white->red */
+}
+
+    .nav-menu a:hover {
+        color: #ff0000;  /* color for change when putting the cursor on */
+    }
+
+
+/* header */
+
+.header {
+
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+    font-family: 'VStyle';
+    color: black;
+}
+
+    .header h1 {
+        
+        font-size: 5em;
+        margin-bottom: 20px;
+    }
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-content h2 {
+    color: #333; 
+    font-size: 2em; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* photo gallery - main page */
+.gallery {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    gap: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* ^ based on https://css-tricks.com/almanac/properties/g/grid-template-columns/ */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* it's a container for an image, not image itself */
+.image {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    position: relative; 
+}
+/* here's an image */
+    .image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .image:hover {
+        transform: scale(1.1); /*making image appear bigger with cursor */
+    }
+
+    .image p {
+        position: absolute; 
+        bottom: 0; 
+        left: 0;
+        right: 0; 
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        padding: 10px; 
+        background: rgba(255, 255, 255, 0.8); 
+        border-radius: 0 0 10px 10px; 
+    }
+    
+
+/* containers for main page - under the gallery */
+
+/* we had some problems so we left it */
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* container itself is the same every time */
+.why-budapest-container,
+.phrases-container {
+    flex: 1;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* same with h2 */
+.why-budapest-container h2,
+.phrases-container h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-family: 'VStyle';
+    text-align: center; /* Center the h2 title */
+}
+
+/* text-align is different */
+.why-budapest-content{
+    flex: 1; 
+    width: 45%;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.phrases-content {
+    width: 45%;
+    flex: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* so I won't have any dots or nums */
+.phrases-content ul {
+    list-style-type: none;
+}
+
+/* events slider styles */
+.events-slider {
+    width: 80%;  
+    margin: 20px auto;  
+    position: relative;
+}
+
+    .events-slider h2 {
+        font-size: 3em;  
+        margin-bottom: 10px;
+        font-family: 'VStyle';  
+    }
+
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    height: 350px;
+}
+
+.event-slide {
+    flex: 0 0 auto;
+    width: 400px; 
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-image {
+    overflow: hidden;
+    border-radius: 8px 8px 0 0; 
+}
+
+    .event-image img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover; 
+    }
+
+.event-details {
+    padding: 20px;
+}
+
+    .event-details h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .event-details p {
+        margin-bottom: 10px;
+    }
+
+.event-slide:hover {
+    transform: scale(1.05);
+}
+
+
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+
+}
+
+.slider-arrow {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: color 0.3s ease-in-out;
+    z-index: 1;
+
+}
+
+.slider-container:hover .left-arrow, .slider-container:hover .right-arrow {
+    color: #555; 
+    transform: translateY(-50%) translateX(10px); 
+}
+
+.slider-container:hover .left-arrow {
+    color: #555; 
+    transform: translateY(-50%) translateX(-10px); 
+}
+
+.slider-container:hover .right-arrow {
+    color: #555; 
+    transform: translateY(-50%) translateX(10px); 
+}
+
+.left-arrow,
+.right-arrow {
+    background-color: transparent;
+    color: #333;
+    border: 1px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 1.8em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.left-arrow {
+    left: 0;
+    
+}
+
+.right-arrow {
+    right: 0;
+    
+}
+
+.slider-arrow:hover {
+    color: #555; 
+    transform: translateY(-50%) translateX(5px);
+}
+
+
+
+
+
+
+/* news & events  */
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.news-item {
+    width: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px; /*so it's not a typical square */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+    .news-item img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .news-item h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .news-item:hover {
+        transform: scale(1.05);
+    }
+
+
+
+
+
+/* history & popular */
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-event {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+    .timeline-event h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+.timeline-date { 
+    font-weight: bold; /*so it will be drawing attention */
+}
+
+.timeline-event p {
+    margin-bottom: 10px;
+}
+
+.timeline-event:hover {
+    transform: scale(1.05);
+}
+
+
+/* then for people */
+
+.people-container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+    .people-container h2 {
+        font-size: 3em;  
+        margin-bottom: 10px;
+        font-family: 'VStyle';  
+    }
+
+.people-grid { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* multicolumn */
+    gap: 20px;
+}
+
+.person {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.person img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.person:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+/* sightseeings */
+
+.map-container {
+    flex: 1;
+    height: 400px;
+    margin-bottom: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sightseeing-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sightseeing {
+    width: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+    .sightseeing img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .sightseeing h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .sightseeing p {
+        margin-bottom: 10px;
+    }
+
+    .sightseeing:hover {
+        transform: scale(1.05);
+    }
+
+
+
+
+/* services */
+.services-section {
+    margin-top: 20px;
+}
+
+.services-section h2 {
+    font-size: 3em;  
+    margin-bottom: 10px;
+    font-family: 'VStyle'; 
+}
+
+.services-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* ticket prices - table */
+
+.services-table {
+    width: 80%;
+    margin: 20px auto; 
+    border-collapse: collapse; 
+    background-color: #f4f4f4;
+    border-radius: 12px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+.services-table th, .services-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.services-table th {
+    background-color: #333;
+    color: white;
+}
+
+.services-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /*based on https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+}
+
+/* contact */
+
+.contact-container {
+    margin: 0 auto 40px; 
+    padding: 20px; 
+    border-radius: 8px;
+    text-align: left;
+    width: 70%;
+    flex: 1; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out;
+    background-color: #f4f4f4; 
+}
+
+.contact-container h2 {
+    font-family: 'VStyle';
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-container img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 10px; 
+}
+
+.contact-container:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+}
+
