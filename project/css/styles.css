@@ -1,606 +1,590 @@
-﻿
-/* We defined custom fonts for h1 and h2 so it'll look fancy */
-
-@font-face {
-    font-family: 'Bereal';  
-    src: url('grotesque.ttf') format('truetype'); 
-    font-weight: normal;
-    font-style: normal; 
-}
-
-@font-face {
-    font-family: 'VStyle';  /* defines a font family named 'VStyle' I downloaded before */
-    src: url('VStyle.ttf') format('truetype');  
-    font-weight: normal; 
-    font-style: normal;  
+/* Global Reset to ensure browser consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*   padding and border do not affect element size */
 }
 
 body {
-    font-family: 'Arial', sans-serif;  /* sets the font family for the body text */
-    line-height: 1.6;  /* sets the line height for better readability than 1.2*/
-    color: #333;  
-    background-color: #f8f8f8;  
+  font-family: Arial, sans-serif; /* default chosen font for the page */
 }
 
-.tagline {
-    color: black;  
-    font-family: Bereal;  
+/* Navbar */
+.navbar {
+  background-color: #f8f8f8; 
+  border-bottom: 2px solid #e0e0e0; /* Subtle border to separate navbar from content */
+  padding: 1rem 0;
+  position: sticky; /* fixes navbar at the top while scrolling */
+  top: 0;
+  width: 100%; 
+  z-index: 1000; /* Ensures navbar stays on top of other content */
+}
+
+/* Container for navbar content */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo image style */
+.logo img {
+  height: 50px;
+}
+
+/* Navigation Menu */
+.nav-menu ul {
+  list-style-type: none; /* Removes default list style */
+  display: flex; /* Horizontal layout for nav items */
+  gap: 1.5rem; /* space between nav items */
+}
+
+.nav-menu ul li {
+  position: relative; /* position hover effect */
+}
+
+/* Navigation links */
+.nav-menu ul li a {
+  text-decoration: none; /* removes underline since is a link */
+  color: #333; /* Dark text color */
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s; /* smoothen color transition on hover */
+}
+
+/* Hover and active states for links */
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+  color: #ff5722; /* Change color on hover or active state */
+}
+
+/* Underline effect on hover or active */
+.nav-menu ul li a.active::after,
+.nav-menu ul li a:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #ff5722;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+/* Header Styling */
+/* HEADER */
+.header {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  background-image: url('../img/tartu1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  animation: fadeBackground 16s infinite; /* for a smooth transition between images */
+}
+
+.subHeader {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  background-image: url('../img/tartu1.jpg'); 
+  background-size: cover;
+  background-position: center;
+  animation: fadeBackground 16s infinite; /* a smooth transition between images */
+}
+
+.header .title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.mainTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes fadeBackground {
+  0% {
+      background-image: url('../img/tartu1.jpg');
+  }
+  33% {
+    background-image: url('../img/observatory.jpg');
+}
+  66% {
+    background-image: url('../img/theatre.jpg');
+}
+  100% {
+      background-image: url('../img/hallsquare.jpg');
+  }
+}
+
+/* Video Section */
+.video-section {
+  background-color: #f9f9f9; 
+  padding: 3rem 1rem;
+  text-align: center;
 }
 
 .container {
-    max-width: 1200px; 
-    margin: auto;  
-    padding: 0 20px;  /*padding to the left and right sides of the container */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-
-/* using VStyle font family */
-.title {
-    font-family: 'VStyle';  
-    line-height: 1.3;  /* we've chosen the height based on few tries */
-    color: rgb(14, 16, 17);  
-    background-color: #f8f8f8;  
+/* Video container to maintain aspect ratio */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%; /* Aspect ratio of 16:9 */
+  border-radius: 8px;
+  width: 100%;
 }
 
-/* navigation */
-.navbar {
-    background-color: #333; /* black for contrast */
-    color: white; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle box shadow for aesthetics */
-    padding: 15px 0; /* adjust padding at the top and bottom of the navbar */
-    display: flex; /* flexbox */
-    justify-content: space-between; 
-    position: sticky; /* navbar is "sticked" to the top of the page */
-    top: 0; /* at the top of the page */
-    z-index: 10000; /* high z-index to make sure that the navbar is above other elements */
-    }
-
-    /* Navbar Container Styles */
-    .navbar .container {
-        display: flex; 
-        justify-content: space-between;  /* space elements evenly distributed*/
-        align-items: center;  /* centering within the container */
-    }
-
-/* logo */
-
-.logo img {
-    max-width: 100px;
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px; 
 }
 
-.nav-menu ul {
-    list-style: none;  /* deleting styling */
-    display: flex;  /* flexbox */
-}
-
-.nav-menu a {
-    font-weight: bold;
-    text-decoration: none;  /* deleting underlines under the links */
-    color: white; 
-    margin: 0 15px; 
-    transition: color 0.3s ease-in-out;  /* hoover: white->red */
-}
-
-    .nav-menu a:hover {
-        color: #ff0000;  /* color for change when putting the cursor on */
-    }
-
-
-/* header */
-
-.header {
-
-    background-image: none;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 60px 0;
-    font-family: 'VStyle';
-    color: black;
-}
-
-    .header h1 {
-        
-        font-size: 5em;
-        margin-bottom: 20px;
-    }
-
+/* Gallery Section */
 .main-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  padding: 2rem 1rem;
 }
-
-.main-content h2 {
-    color: #333; 
-    font-size: 2em; 
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* footer */
-.footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-/* photo gallery - main page */
+/* Gallery Layout */
 .gallery {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    gap: 20px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    /* ^ based on https://css-tricks.com/almanac/properties/g/grid-template-columns/ */
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-responsive grid */
+  gap: 2rem; /* Space between items */
+  margin: 2rem auto;
+  max-width: 1200px; /* Maximum container width */
+  padding: 1rem;
 }
 
-/* it's a container for an image, not image itself */
+/* Image Container Styling */
 .image {
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    position: relative; 
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-/* here's an image */
-    .image img {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
 
-    .image:hover {
-        transform: scale(1.1); /*making image appear bigger with cursor */
-    }
 
-    .image p {
-        position: absolute; 
-        bottom: 0; 
-        left: 0;
-        right: 0; 
-        text-align: center;
-        margin-top: 10px;
-        font-weight: bold;
-        padding: 10px; 
-        background: rgba(255, 255, 255, 0.8); 
-        border-radius: 0 0 10px 10px; 
-    }
-    
 
-/* containers for main page - under the gallery */
 
-/* we had some problems so we left it */
+.image a {
+  display: inline-block;
+}
+.image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+/* Text Styling */
+.image p {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+
+.image:hover img {
+  transform: scale(1.05); /* zoom effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.image:hover p {
+  color: #ff5722; /* Change text color on hover */
+}
+
+/* Why Tartu Section */
+.why-tartu {
+  background-color: #f4f4f4;
+  padding: 3rem 1rem;
+}
+
+/* Container for the two sections inside Why Tartu */
 .container-wrapper {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens, because of width */
 }
 
-/* container itself is the same every time */
-.why-budapest-container,
+.why-tartu-container,
 .phrases-container {
-    flex: 1;
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
+  flex: 1;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* same with h2 */
-.why-budapest-container h2,
-.phrases-container h2 {
-    font-size: 3em;
-    margin-bottom: 15px;
-    font-family: 'VStyle';
-    text-align: center; /* Center the h2 title */
+.why-tartu-content h2,
+.phrases-content h2 {
+  font-size: 1.8rem;
+  color: #ff5722;
+  margin-bottom: 1rem;
 }
 
-/* text-align is different */
-.why-budapest-content{
-    flex: 1; 
-    width: 45%;
-    margin-left: 20px;
-    margin-right: 20px;
-    box-sizing: border-box;
-    text-align: justify;
+.why-tartu-content .intro p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-.phrases-content {
-    width: 45%;
-    flex: 1;
-    margin-left: 20px;
-    margin-right: 20px;
-    box-sizing: border-box;
-    text-align: center;
+.phrases-container {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
 }
 
-/* so I won't have any dots or nums */
 .phrases-content ul {
-    list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* events slider styles */
+.phrases-content li {
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.phrases-content li p {
+  margin: 0;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #ff5722; 
+  color: #ffffff;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+.footer .container p {
+  margin: 0;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer p {
+  color: white;
+  text-decoration: none;
+}
+
+/* News Section */
+.news-container {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* define min width and max of each column */
+}
+
+/* Individual News Item */
+.news-item {
+  display: flex;
+  gap: 1rem;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+}
+
+.news-item img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+}
+
+.news-content {
+  padding: 1rem;
+}
+
+.news-content h2 {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+}
+
+.news-content p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Events Slider */
 .events-slider {
-    width: 80%;  
-    margin: 20px auto;  
-    position: relative;
+  margin: 3rem 0;
+  position: relative;
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
-    .events-slider h2 {
-        font-size: 3em;  
-        margin-bottom: 10px;
-        font-family: 'VStyle';  
-    }
+.events-slider h2 {
+  color: #ff5722;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
 
 .slider-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    position: relative;
-    justify-content: center;
-    overflow: hidden;
-    align-items: center;
-    height: 350px;
-}
-
-.event-slide {
-    flex: 0 0 auto;
-    width: 400px; 
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-}
-
-.event-image {
-    overflow: hidden;
-    border-radius: 8px 8px 0 0; 
-}
-
-    .event-image img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover; 
-    }
-
-.event-details {
-    padding: 20px;
-}
-
-    .event-details h3 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-    .event-details p {
-        margin-bottom: 10px;
-    }
-
-.event-slide:hover {
-    transform: scale(1.05);
-}
-
-
-.arrow-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
 }
 
 .slider-arrow {
-    background-color: transparent;
-    color: #333;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.5em;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: color 0.3s ease-in-out;
-    z-index: 1;
-
-}
-
-.slider-container:hover .left-arrow, .slider-container:hover .right-arrow {
-    color: #555; 
-    transform: translateY(-50%) translateX(10px); 
-}
-
-.slider-container:hover .left-arrow {
-    color: #555; 
-    transform: translateY(-50%) translateX(-10px); 
-}
-
-.slider-container:hover .right-arrow {
-    color: #555; 
-    transform: translateY(-50%) translateX(10px); 
-}
-
-.left-arrow,
-.right-arrow {
-    background-color: transparent;
-    color: #333;
-    border: 1px;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 1.8em;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 1;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-.left-arrow {
-    left: 0;
-    
-}
-
-.right-arrow {
-    right: 0;
-    
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .slider-arrow:hover {
-    color: #555; 
-    transform: translateY(-50%) translateX(5px);
+  background: #ff5722;
 }
 
-
-
-
-
-
-/* news & events  */
-.news-container {
-    display: flex;
-    flex-wrap: wrap;
+.left-arrow {
+  position: absolute;
+  left: 100px;
 }
 
-.news-item {
-    width: 48%;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px; /*so it's not a typical square */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+.right-arrow {
+  position: absolute;
+  right: 100px;
 }
 
-    .news-item img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
+.event-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+}
 
-    .news-item h2 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-    .news-item:hover {
-        transform: scale(1.05);
-    }
-
-
-
-
-
-/* history & popular */
-
+/* Timeline Section */
 .timeline {
-    display: flex;
-    flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
 }
 
 .timeline-event {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  min-width: 180px;
 }
 
-    .timeline-event h2 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-.timeline-date { 
-    font-weight: bold; /*so it will be drawing attention */
+.timeline-event h3 {
+  font-size: 1.2rem;
+  color: #ff5722;
+  margin: 0;
 }
 
-.timeline-event p {
-    margin-bottom: 10px;
+.timeline-date {
+  font-weight: bold;
+  color: #666;
 }
 
-.timeline-event:hover {
-    transform: scale(1.05);
-}
-
-
-/* then for people */
-
+/* People Section */
 .people-container {
-    margin-top: 20px;
-    margin-bottom: 40px;
+  border: 1px solid #ccc;
+  padding: 20px;
 }
-    .people-container h2 {
-        font-size: 3em;  
-        margin-bottom: 10px;
-        font-family: 'VStyle';  
-    }
 
-.people-grid { 
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* multicolumn */
-    gap: 20px;
+.people-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .person {
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+}
+
+.person p b {
+  color: #ff5722;
 }
 
 .person img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
-.person:hover {
-    transform: scale(1.05);
-}
-
-
-
-
-/* sightseeings */
-
-.map-container {
-    flex: 1;
-    height: 400px;
-    margin-bottom: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.sightseeing-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
+/* Sightseeing Section */
 .sightseeing {
-    width: 48%;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-    .sightseeing img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
-
-    .sightseeing h2 {
-        font-size: 1.5em;
-        margin-bottom: 10px;
-    }
-
-    .sightseeing p {
-        margin-bottom: 10px;
-    }
-
-    .sightseeing:hover {
-        transform: scale(1.05);
-    }
-
-
-
-
-/* services */
-.services-section {
-    margin-top: 20px;
+.sightseeing:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
 }
 
-.services-section h2 {
-    font-size: 3em;  
-    margin-bottom: 10px;
-    font-family: 'VStyle'; 
+.sightseeing img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.services-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
+.sightseeing h3 {
+  margin: 10px 15px;
+  font-size: 20px;
+  color: #ff5722;
 }
 
-/* ticket prices - table */
-
-.services-table {
-    width: 80%;
-    margin: 20px auto; 
-    border-collapse: collapse; 
-    background-color: #f4f4f4;
-    border-radius: 12px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+.sightseeing p {
+  margin: 10px 15px 15px;
+  color: #555;
 }
 
-.services-table th, .services-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
+.sight-cards {
+  margin-top: 100px;
 }
 
-.services-table th {
-    background-color: #333;
-    color: white;
+.sight-cards h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff5722;
 }
 
-.services-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9; /*based on https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
+.main-content-service {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* contact */
-
-.contact-container {
-    margin: 0 auto 40px; 
-    padding: 20px; 
-    border-radius: 8px;
-    text-align: left;
-    width: 70%;
-    flex: 1; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease-in-out;
-    background-color: #f4f4f4; 
+.service-info {
+  margin-bottom: 20px;
 }
 
-.contact-container h2 {
-    font-family: 'VStyle';
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #333;
+h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  text-align: center;
 }
 
-.contact-container img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    display: block;
+.ticket-table-container {
+  margin-top: 20px;
+  overflow-x: auto;
 }
 
-.contact-container p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 10px; 
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
 }
 
-.contact-container:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+.ticket-table th,
+.ticket-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
 }
 
+.ticket-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.ticket-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.main-content-contact {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-card {
+  flex: 1 1 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.contact-card p {
+  margin: 5px 0;
+}
