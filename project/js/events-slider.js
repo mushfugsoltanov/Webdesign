@@ -1,14 +1,11 @@
-// events-slider.js
+
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Sample events data with image paths (replace with your actual data)
     var eventsData = [
         { title: "Tartu Folk: Final Concert", date: "2024-12-03", imagePath: "../img/concert.jpg" },
-        { title: "Art Festival,Out of town", date: "2023-12-10", imagePath: "../img/car.jpg" },
-        { title: "Urban bicycle tour", date: "2023-12-20", imagePath: "../img/bicycle.jpeg" },
+        { title: "Art Festival,Out of town", date: "2024-12-10", imagePath: "../img/car.jpg" },
+        { title: "Urban bicycle tour", date: "2024-12-20", imagePath: "../img/bicycle.jpeg" },
     ];
-
-    // Function to create event slides
     function createEventSlide(event) {
         var slide = document.createElement("div");
         slide.classList.add("event-slide");
@@ -34,18 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return slide;
     }
 
-    // Function to initialize the events slider
+
     function initEventsSlider() {
         var sliderContainer = document.getElementById("eventsSlider");
 
-        // Create slides for each event
         eventsData.forEach(function (event) {
             var slide = createEventSlide(event);
             sliderContainer.appendChild(slide);
         });
 
-        // Initialize the slider 
-        // basic CSS class is used for styling
         var currentIndex = 0;
         var slides = document.querySelectorAll(".event-slide");
 
@@ -56,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
             slides[index].style.display = "block";
         }
 
-        // Set up event listeners for arrow navigation
         document.querySelector(".left-arrow").addEventListener("click", function () {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             showSlide(currentIndex);
@@ -67,10 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
             showSlide(currentIndex);
         });
 
-        // Show the first slide initially
         showSlide(currentIndex);
     }
 
-    // Call the function to initialize the events slider
     initEventsSlider();
 });

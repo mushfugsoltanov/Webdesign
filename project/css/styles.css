@@ -475,10 +475,14 @@ body {
   background: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 8px;
+  padding: 24px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .sightseeing:hover {
   transform: scale(1.02); /* Slight zoom on hover */
@@ -503,12 +507,21 @@ body {
 
 .sight-cards {
   margin-top: 100px;
+  align-items: center;
+  justify-content: center;
 }
 
 .sight-cards h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #ff5722;
+}
+
+.map-container{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-content-service {
