@@ -2,22 +2,27 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /*   padding and border do not affect element size */
+  box-sizing: border-box;
+  /*   padding and border do not affect element size */
 }
 
 body {
-  font-family: Arial, sans-serif; /* default chosen font for the page */
+  font-family: Arial, sans-serif;
+  /* default chosen font for the page */
 }
 
 /* Navbar */
 .navbar {
-  background-color: #f8f8f8; 
-  border-bottom: 2px solid #e0e0e0; /* Subtle border to separate navbar from content */
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #e0e0e0;
+  /* Subtle border to separate navbar from content */
   padding: 1rem 0;
-  position: sticky; /* fixes navbar at the top while scrolling */
+  position: sticky;
+  /* fixes navbar at the top while scrolling */
   top: 0;
-  width: 100%; 
-  z-index: 1000; /* Ensures navbar stays on top of other content */
+  width: 100%;
+  z-index: 1000;
+  /* Ensures navbar stays on top of other content */
 }
 
 /* Container for navbar content */
@@ -37,29 +42,37 @@ body {
 
 /* Navigation Menu */
 .nav-menu ul {
-  list-style-type: none; /* Removes default list style */
-  display: flex; /* Horizontal layout for nav items */
-  gap: 1.5rem; /* space between nav items */
+  list-style-type: none;
+  /* Removes default list style */
+  display: flex;
+  /* Horizontal layout for nav items */
+  gap: 1.5rem;
+  /* space between nav items */
 }
 
 .nav-menu ul li {
-  position: relative; /* position hover effect */
+  position: relative;
+  /* position hover effect */
 }
 
 /* Navigation links */
 .nav-menu ul li a {
-  text-decoration: none; /* removes underline since is a link */
-  color: #333; /* Dark text color */
+  text-decoration: none;
+  /* removes underline since is a link */
+  color: #333;
+  /* Dark text color */
   font-weight: 500;
   font-size: 1rem;
   padding: 0.5rem 0;
-  transition: color 0.3s; /* smoothen color transition on hover */
+  transition: color 0.3s;
+  /* smoothen color transition on hover */
 }
 
 /* Hover and active states for links */
 .nav-menu ul li a:hover,
 .nav-menu ul li a.active {
-  color: #ff5722; /* Change color on hover or active state */
+  color: #ff5722;
+  /* Change color on hover or active state */
 }
 
 /* Underline effect on hover or active */
@@ -80,21 +93,23 @@ body {
 .header {
   position: relative;
   width: 100%;
-  height: 100vh; 
-  background-image: url('../img/tartu1.jpg'); 
+  height: 100vh;
+  background-image: url('../img/tartu1.jpg');
   background-size: cover;
   background-position: center;
-  animation: fadeBackground 16s infinite; /* for a smooth transition between images */
+  animation: fadeBackground 16s infinite;
+  /* for a smooth transition between images */
 }
 
 .subHeader {
   position: relative;
   width: 100%;
   height: 20vh;
-  background-image: url('../img/tartu1.jpg'); 
+  background-image: url('../img/tartu1.jpg');
   background-size: cover;
   background-position: center;
-  animation: fadeBackground 16s infinite; /* a smooth transition between images */
+  animation: fadeBackground 16s infinite;
+  /* a smooth transition between images */
 }
 
 .header .title {
@@ -123,22 +138,25 @@ body {
 
 @keyframes fadeBackground {
   0% {
-      background-image: url('../img/tartu1.jpg');
+    background-image: url('../img/tartu1.jpg');
   }
+
   33% {
     background-image: url('../img/observatory.jpg');
-}
+  }
+
   66% {
     background-image: url('../img/theatre.jpg');
-}
+  }
+
   100% {
-      background-image: url('../img/hallsquare.jpg');
+    background-image: url('../img/hallsquare.jpg');
   }
 }
 
 /* Video Section */
 .video-section {
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
   padding: 3rem 1rem;
   text-align: center;
 }
@@ -152,7 +170,8 @@ body {
 .video-container {
   position: relative;
   overflow: hidden;
-  padding-top: 56.25%; /* Aspect ratio of 16:9 */
+  padding-top: 56.25%;
+  /* Aspect ratio of 16:9 */
   border-radius: 8px;
   width: 100%;
 }
@@ -163,20 +182,24 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 /* Gallery Section */
 .main-content {
   padding: 2rem 1rem;
 }
+
 /* Gallery Layout */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-responsive grid */
-  gap: 2rem; /* Space between items */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* Auto-responsive grid */
+  gap: 2rem;
+  /* Space between items */
   margin: 2rem auto;
-  max-width: 1200px; /* Maximum container width */
+  max-width: 1200px;
+  /* Maximum container width */
   padding: 1rem;
 }
 
@@ -201,6 +224,7 @@ body {
 .image a {
   display: inline-block;
 }
+
 .image img {
   width: 100%;
   height: auto;
@@ -222,12 +246,15 @@ body {
 
 
 .image:hover img {
-  transform: scale(1.05); /* zoom effect on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: scale(1.05);
+  /* zoom effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  /* Stronger shadow on hover */
 }
 
 .image:hover p {
-  color: #ff5722; /* Change text color on hover */
+  color: #ff5722;
+  /* Change text color on hover */
 }
 
 /* Why Tartu Section */
@@ -243,7 +270,8 @@ body {
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens, because of width */
+  flex-wrap: wrap;
+  /* Allow wrapping on smaller screens, because of width */
 }
 
 .why-tartu-container,
@@ -293,7 +321,7 @@ body {
 
 /* Footer Styling */
 .footer {
-  background-color: #ff5722; 
+  background-color: #ff5722;
   color: #ffffff;
   padding: 1rem 0;
   text-align: center;
@@ -320,7 +348,8 @@ body {
   display: grid;
   gap: 2rem;
   margin: 2rem auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* define min width and max of each column */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* define min width and max of each column */
 }
 
 /* Individual News Item */
@@ -335,7 +364,8 @@ body {
 }
 
 .news-item:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  /* Add shadow on hover */
 }
 
 .news-item img {
@@ -470,54 +500,69 @@ body {
   border-radius: 10px;
 }
 
-/* Sightseeing Section */
-.sightseeing {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 24px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  align-items: center;
+.sight-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sight-cards h2 {
+  text-align: center;
+  color: #ff5722;
+  margin-top: 80px;
+}
+
+
+.sightseeing-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
 }
 
 
-.sightseeing:hover {
-  transform: scale(1.02); /* Slight zoom on hover */
+.sightseeing {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.sightseeing:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 
 .sightseeing img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 3px solid #3498db;
 }
+
 
 .sightseeing h3 {
-  margin: 10px 15px;
-  font-size: 20px;
-  color: #ff5722;
+  font-size: 1.5em;
+  margin: 15px 0;
+  color: #2c3e50;
 }
+
 
 .sightseeing p {
-  margin: 10px 15px 15px;
+  padding: 0 15px 20px;
+  font-size: 1em;
   color: #555;
+  flex-grow: 1;
 }
 
-.sight-cards {
-  margin-top: 100px;
-  align-items: center;
-  justify-content: center;
-}
 
-.sight-cards h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #ff5722;
-}
-
-.map-container{
+.map-container {
   margin-top: 20px;
   display: flex;
   justify-content: center;
