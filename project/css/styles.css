@@ -170,7 +170,6 @@ body {
 .video-container {
   position: relative;
   overflow: hidden;
-  padding-top: 56.25%;
   /* Aspect ratio of 16:9 */
   border-radius: 8px;
   width: 100%;
